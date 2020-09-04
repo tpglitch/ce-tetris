@@ -1,0 +1,8 @@
+# macOS
+
+.DS_Store
+
+# project
+
+bin
+obj
