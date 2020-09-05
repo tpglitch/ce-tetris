@@ -1,3 +1,5 @@
+#ifndef GRID_H
+
 #define GRID_HEIGHT 26
 #define GRID_WIDTH 10
 #define CELL_SIZE 8
@@ -5,15 +7,17 @@
 
 struct Pos {
     int x;
-    int z;
+    int y;
 };
 
 struct Piece {
-    Pos blocks[4];
-    Pos anchor;
+    struct Pos blocks[4];
+    struct Pos anchor;
+    char color;
 };
 
-typedef struct Pos Pos;
-typedef struct Piece Piece;
+void drawGrid(unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
+void drawPiece(struct Piece *piece);
 
-void drawGrid();
+#define GRID_H
+#endif
