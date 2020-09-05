@@ -2,9 +2,9 @@
 # Program Options
 # ----------------------------
 
-NAME         ?= DEMO
+NAME         ?= TETRIS
 ICON         ?= icon.png
-DESCRIPTION  ?= "CE C SDK Demo"
+DESCRIPTION  ?= "t e t r i s"
 MAIN_ARGS    ?= NO
 COMPRESSED   ?= NO
 ARCHIVED     ?= NO
