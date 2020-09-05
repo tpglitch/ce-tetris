@@ -109,19 +109,3 @@ exit:
     gfx_End();
     return 0;
 }
-
-
-// int main(void) {
-//
-//     gfx_Begin();
-//     gfx_FillScreen(0x00);
-//
-//     while (true) {
-//         if (kb_ScanGroup(7) & kb_KeyLeft) {
-//             gfx_End();
-//             return 0;
-//         }
-//     }
-//
-//     return 0;
-// }
