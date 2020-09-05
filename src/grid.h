@@ -9,8 +9,8 @@ struct Pos {
 };
 
 struct Piece {
-    int blocks[4];
-    int center;
+    Pos blocks[4];
+    Pos anchor;
 };
 
 typedef struct Pos Pos;
