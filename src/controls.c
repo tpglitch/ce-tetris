@@ -66,16 +66,66 @@ void solidify(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
     Piece newPiece = {
         // Blocks positions
         {
-            { 1, 1 },
             { 2, 1 },
+            { 1, 1 },
             { 3, 1 },
             { 4, 1 }
         },
-        // Anchor
-        { 1, 1 },
         // Color
         0x3C
     };
+
+    *piece = newPiece;
+}
+
+void rotateClockwise(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
+    Pos anchor = piece->blocks[0];
+    Piece newPiece;
+    newPiece.blocks[0] = anchor;
+    newPiece.color = piece->color;
+
+    for (int i = 1; i < 4; i++) {
+        Pos block = piece->blocks[i];
+
+        // Applies a rotation matrix with a translation to then
+        // anchor of the piece.
+        int x = block.y - anchor.y + anchor.x;
+        int y = -(block.x - anchor.x) + anchor.y;
+
+        // If cell is empty and within the grid
+        if (grid[y][x] == 0x00 && x > 0 && x < GRID_WIDTH && y > 0 && y < GRID_HEIGHT) {
+            newPiece.blocks[i].x = x;
+            newPiece.blocks[i].y = y;
+        } else {
+            return;
+        }
+    }
+
+    *piece = newPiece;
+}
+
+void rotateCounterClockwise(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
+    Pos anchor = piece->blocks[0];
+    Piece newPiece;
+    newPiece.blocks[0] = anchor;
+    newPiece.color = piece->color;
+
+    for (int i = 1; i < 4; i++) {
+        Pos block = piece->blocks[i];
+
+        // Applies a rotation matrix with a translation to then
+        // anchor of the piece.
+        int x = -(block.y - anchor.y) + anchor.x;
+        int y = block.x - anchor.x + anchor.y;
+
+        // If cell is empty and within the grid
+        if (grid[y][x] == 0x00 && x > 0 && x < GRID_WIDTH && y > 0 && y < GRID_HEIGHT) {
+            newPiece.blocks[i].x = x;
+            newPiece.blocks[i].y = y;
+        } else {
+            return;
+        }
+    }
 
     *piece = newPiece;
 }

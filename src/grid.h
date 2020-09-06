@@ -12,7 +12,6 @@ struct Pos {
 
 struct Piece {
     struct Pos blocks[4];
-    struct Pos anchor;
     char color;
 };
 

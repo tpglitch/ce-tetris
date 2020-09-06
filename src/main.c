@@ -40,19 +40,16 @@ unsigned char grid[GRID_HEIGHT][GRID_WIDTH] = {
 Piece piece = {
     // Blocks positions
     {
-        { 1, 1 },
-        { 2, 1 },
-        { 1, 2 },
-        { 2, 2 }
+        { 4, 1 },
+        { 5, 1 },
+        { 4, 2 },
+        { 5, 2 }
     },
-    // Anchor
-    { 1, 1 },
     // Color
     0x7f
 };
 
 int main(void) {
-    // uint32_t forceDownTime = rtc_Time();
     int counter = 0;
     int heldKeyCounter = 0;
     int heldKeySlowdown = 0;
@@ -69,8 +66,6 @@ int main(void) {
 
         gfx_SwapDraw();
 
-        isPressed = (kb_Data[7] & 0b1111) != 0b0000;
-
         if (++counter == 34) {
             down(&piece, grid);
             counter = 0;
@@ -78,6 +73,7 @@ int main(void) {
 
         if (kb_Data[6] & kb_KeyClear) goto exit;
 
+        isPressed = ((kb_Data[7] & 0b1111) != 0) || (kb_Data[1] & kb_Key2nd) != 0 || (kb_Data[2] & kb_KeyAlpha) != 0;
         if (isPressed) {
             if (!wasPressed || (heldKeyCounter > 20 && heldKeySlowdown == 0)) {
                 if (kb_Data[7] & kb_KeyUp) {
@@ -91,6 +87,12 @@ int main(void) {
                     heldKeyCounter++;
                 } else if (kb_Data[7] & kb_KeyRight) {
                     right(&piece, grid);
+                    heldKeyCounter++;
+                } else if (kb_Data[1] & kb_Key2nd) {
+                    rotateClockwise(&piece, grid);
+                    heldKeyCounter++;
+                } else if (kb_Data[2] & kb_KeyAlpha) {
+                    rotateCounterClockwise(&piece, grid);
                     heldKeyCounter++;
                 }
             }

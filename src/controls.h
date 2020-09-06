@@ -9,3 +9,6 @@ void left   (struct Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
 void right  (struct Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
 
 void solidify(struct Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
+
+void rotateClockwise(struct Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
+void rotateCounterClockwise(struct Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
