@@ -62,6 +62,7 @@ void solidify(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
 
     Piece newPiece = createRandomPiece();
     *piece = newPiece;
+    checkForLines(grid);
 }
 
 void rotateClockwise(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {

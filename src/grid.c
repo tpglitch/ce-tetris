@@ -19,3 +19,21 @@ void drawPiece(Piece *piece) {
         gfx_FillRectangle_NoClip(position.x*CELL_SIZE+GRID_MARGIN, position.y*CELL_SIZE+GRID_MARGIN, CELL_SIZE, CELL_SIZE);
     }
 }
+
+void checkForLines(unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
+    int offset = 0;
+    for (int y = GRID_HEIGHT-1; y >= 0; y--) {
+        int cells = 0;
+        for (int i = 0; i < GRID_WIDTH; i++) {
+            if (grid[y][i] != 0x00) cells++;
+        }
+
+        if (cells == GRID_WIDTH) {
+            offset++;
+        }
+
+        for (int x = 0; x < GRID_WIDTH; x++) {
+            grid[y+offset][x] = grid[y][x];
+        }
+    }
+}
