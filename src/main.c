@@ -67,7 +67,7 @@ int main(void) {
             if (!wasPressed || (heldKeyCounter > 20 && heldKeySlowdown == 0)) {
                 if (kb_Data[7] & kb_KeyUp) {
                     while (!down(&piece, grid));
-                    heldKeyCounter++;
+                    heldKeyCounter=-1;
                 } else if (kb_Data[7] & kb_KeyDown) {
                     down(&piece, grid);
                     heldKeyCounter++;
@@ -94,6 +94,10 @@ int main(void) {
         }
 
         wasPressed = isPressed;
+
+        if (!canSpawnPiece(piece, grid)) {
+            goto exit;
+        }
     }
 
 exit:
