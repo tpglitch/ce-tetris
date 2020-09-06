@@ -1,4 +1,4 @@
-// #include <tice.h>
+#include <tice.h>
 #include <graphx.h>
 #include <debug.h>
 
@@ -36,6 +36,7 @@ unsigned char grid[GRID_HEIGHT][GRID_WIDTH] = {
 };
 
 int main(void) {
+    srandom(rtc_Time());
     Piece piece = createRandomPiece();
 
     int counter = 0;
