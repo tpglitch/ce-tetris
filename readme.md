@@ -1,12 +1,22 @@
-### CE C SDK Template
+# CE Tetris
 
-You can clone this directory for your own projects.
+Tetris made for the CE graphic calculators, compatible with the TI-83 Premium CE.
 
-To add code, fill in the `int main(void)` function in main.c. You can also create
-your own source and header files and add them to the directory; the makefile
-will automatically find and compile the new source files.
+# Compile
 
----
+Precompiled binaries can be found (here)[https://github.com/samipourquoi/ce-tetris/releases/].
 
-This template is a part of the C SDK Toolchain for use on the CE.
+Make sure you have the (CE toolchain)[https://github.com/CE-Programming/toolchain/tree/master] installed. If you are on macOS 10.15+, you must compile the LLVM version yourself [here](https://github.com/CE-Programming/toolchain/wiki/Building-the-toolchain#building-the-llvm-branch).
 
+First clone the repository:
+```shell
+$ git clone https://github.com/samipourquoi/ce-tetris.git
+$ cd ce-tetris
+```
+
+Then, run this command to compile:
+```shell
+$ make
+```
+
+The binaries will be at `bin/TETRIS.8xp`. Use (TI Connect CE)[https://education.ti.com/en/products/computer-software/ti-connect-ce-sw] to send it to your CE, or use an emulator such as (CEmu)[https://github.com/CE-Programming/CEmu].
