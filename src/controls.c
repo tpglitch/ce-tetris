@@ -1,4 +1,5 @@
 #include "controls.h"
+#include "pieces.h"
 
 typedef struct Pos Pos;
 typedef struct Piece Piece;
@@ -63,18 +64,7 @@ void solidify(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
         grid[block.y][block.x] = piece->color;
     }
 
-    Piece newPiece = {
-        // Blocks positions
-        {
-            { 2, 1 },
-            { 1, 1 },
-            { 3, 1 },
-            { 4, 1 }
-        },
-        // Color
-        0x3C
-    };
-
+    Piece newPiece = createRandomPiece();
     *piece = newPiece;
 }
 

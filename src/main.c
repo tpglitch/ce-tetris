@@ -1,9 +1,10 @@
-#include <tice.h>
+// #include <tice.h>
 #include <graphx.h>
 #include <debug.h>
 
 #include "grid.h"
 #include "controls.h"
+#include "pieces.h"
 
 typedef struct Pos Pos;
 typedef struct Piece Piece;
@@ -37,19 +38,9 @@ unsigned char grid[GRID_HEIGHT][GRID_WIDTH] = {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 };
 
-Piece piece = {
-    // Blocks positions
-    {
-        { 4, 1 },
-        { 5, 1 },
-        { 4, 2 },
-        { 5, 2 }
-    },
-    // Color
-    0x7f
-};
-
 int main(void) {
+    Piece piece = createRandomPiece();
+
     int counter = 0;
     int heldKeyCounter = 0;
     int heldKeySlowdown = 0;
@@ -88,10 +79,10 @@ int main(void) {
                 } else if (kb_Data[7] & kb_KeyRight) {
                     right(&piece, grid);
                     heldKeyCounter++;
-                } else if (kb_Data[1] & kb_Key2nd) {
+                } else if (kb_Data[2] & kb_KeyAlpha) {
                     rotateClockwise(&piece, grid);
                     heldKeyCounter++;
-                } else if (kb_Data[2] & kb_KeyAlpha) {
+                } else if (kb_Data[1] & kb_Key2nd) {
                     rotateCounterClockwise(&piece, grid);
                     heldKeyCounter++;
                 }
