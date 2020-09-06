@@ -7,8 +7,8 @@
 #define CELL_SIZE 8
 #define GRID_MARGIN 16
 
-void drawGrid(unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
-void drawPiece(Piece *piece);
+void drawGrid   (unsigned char grid[GRID_HEIGHT][GRID_WIDTH]);
+void drawPiece  (Piece *piece);
 
 #define GRID_H
 #endif
