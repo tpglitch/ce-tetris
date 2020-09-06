@@ -1,8 +1,4 @@
 #include "controls.h"
-#include "pieces.h"
-
-typedef struct Pos Pos;
-typedef struct Piece Piece;
 
 bool down(Piece *piece, unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
     bool fit = true;

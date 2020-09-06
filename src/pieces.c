@@ -2,8 +2,8 @@
 
 #include "pieces.h"
 
-struct Piece createSquare() {
-    struct Piece piece = {
+Piece createSquare() {
+    Piece piece = {
         // Blocks positions
         // oa
         // aa
@@ -20,8 +20,8 @@ struct Piece createSquare() {
     return piece;
 }
 
-struct Piece createBar() {
-    struct Piece piece = {
+Piece createBar() {
+    Piece piece = {
         // Blocks positions
         // aoaa
         {
@@ -37,8 +37,8 @@ struct Piece createBar() {
     return piece;
 }
 
-struct Piece createL() {
-    struct Piece piece = {
+Piece createL() {
+    Piece piece = {
         // Blocks positions
         // aoa
         // a
@@ -55,8 +55,8 @@ struct Piece createL() {
     return piece;
 }
 
-struct Piece createReverseL() {
-    struct Piece piece = {
+Piece createReverseL() {
+    Piece piece = {
         // Blocks positions
         // aoa
         //   a
@@ -73,8 +73,8 @@ struct Piece createReverseL() {
     return piece;
 }
 
-struct Piece createStairs() {
-    struct Piece piece = {
+Piece createStairs() {
+    Piece piece = {
         // Blocks positions
         //  oa
         // aa
@@ -91,8 +91,8 @@ struct Piece createStairs() {
     return piece;
 }
 
-struct Piece createReverseStairs() {
-    struct Piece piece = {
+Piece createReverseStairs() {
+    Piece piece = {
         // Blocks positions
         // ao
         //  aa
@@ -109,8 +109,8 @@ struct Piece createReverseStairs() {
     return piece;
 }
 
-struct Piece createT() {
-    struct Piece piece = {
+Piece createT() {
+    Piece piece = {
         // Blocks positions
         // aoa
         //  a
@@ -127,7 +127,7 @@ struct Piece createT() {
     return piece;
 }
 
-struct Piece createRandomPiece() {
+Piece createRandomPiece() {
     unsigned int rand = randInt(0, 6);
     switch (rand) {
         case 0:

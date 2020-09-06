@@ -2,9 +2,6 @@
 
 #include "grid.h"
 
-typedef struct Pos Pos;
-typedef struct Piece Piece;
-
 void drawGrid(unsigned char grid[GRID_HEIGHT][GRID_WIDTH]) {
     for (int y = 0; y < GRID_HEIGHT; y++) {
         for (int x = 0; x < GRID_WIDTH; x++) {

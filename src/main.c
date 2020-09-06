@@ -6,9 +6,6 @@
 #include "controls.h"
 #include "pieces.h"
 
-typedef struct Pos Pos;
-typedef struct Piece Piece;
-
 unsigned char grid[GRID_HEIGHT][GRID_WIDTH] = {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
